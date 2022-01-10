@@ -2412,7 +2412,7 @@ public class Trangchu extends javax.swing.JFrame {
         itemabout.setText("Thông tin");
 
         itemdeveloper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/icons8-developer-20.png"))); // NOI18N
-        itemdeveloper.setText("Nhà phát triển :v");
+        itemdeveloper.setText("Nhà phát triển");
         itemdeveloper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemdeveloperActionPerformed(evt);
