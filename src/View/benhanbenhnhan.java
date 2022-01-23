@@ -25,8 +25,7 @@ public class benhanbenhnhan extends javax.swing.JFrame {
     public benhanbenhnhan() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);
-        
+        setResizable(false);      
     }
     /* 2 hàm SetData và GetData để lấy ID từ Jframe benhnhan sang. Sau đó sử dụng ID đó để truy vấn SELECT WHERE */
     public void SetID(String ID) {
@@ -37,7 +36,8 @@ public class benhanbenhnhan extends javax.swing.JFrame {
     }
     /* ******** */
 
-    private void LoadData() {         
+    private void LoadData() {  
+            String onetwothree = IDBN.getText();
         //hàm hiện thị thông tin từ sql về bảng
          try{ 
             Class.forName("com.mysql.jdbc.Driver");
@@ -45,7 +45,7 @@ public class benhanbenhnhan extends javax.swing.JFrame {
             Statement st = conn.createStatement();
             String sql = "SELECT * FROM benhnhan WHERE id=?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,IDBN.getText());
+            pstmt.setString(1,onetwothree);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()){
                 ahoten.setText(rs.getString("hoten"));
@@ -199,7 +199,6 @@ public class benhanbenhnhan extends javax.swing.JFrame {
         RBtuvong = new javax.swing.JRadioButton();
         Btnsaveeeeeeee = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        BTN_Load = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(670, 830));
@@ -256,6 +255,11 @@ public class benhanbenhnhan extends javax.swing.JFrame {
         jLabel4.setText("ID BỆNH NHÂN:");
 
         IDBN.setText("jLabel29");
+        IDBN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IDBNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pntitlephaiLayout = new javax.swing.GroupLayout(pntitlephai);
         pntitlephai.setLayout(pntitlephaiLayout);
@@ -493,6 +497,8 @@ public class benhanbenhnhan extends javax.swing.JFrame {
 
         achuandoan.setColumns(20);
         achuandoan.setRows(5);
+        achuandoan.setAutoscrolls(false);
+        achuandoan.setPreferredSize(new java.awt.Dimension(164, 50));
         jScrollPane1.setViewportView(achuandoan);
 
         jLabel19.setText("10. Chuẩn đoán:");
@@ -546,6 +552,7 @@ public class benhanbenhnhan extends javax.swing.JFrame {
 
         alydoravien.setColumns(20);
         alydoravien.setRows(5);
+        alydoravien.setAutoscrolls(false);
         jScrollPane2.setViewportView(alydoravien);
 
         jLabel27.setText("Tổng số ngày điều trị:");
@@ -759,13 +766,6 @@ public class benhanbenhnhan extends javax.swing.JFrame {
             }
         });
 
-        BTN_Load.setText("Load!");
-        BTN_Load.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTN_LoadActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelBIGLayout = new javax.swing.GroupLayout(PanelBIG);
         PanelBIG.setLayout(PanelBIGLayout);
         PanelBIGLayout.setHorizontalGroup(
@@ -777,14 +777,8 @@ public class benhanbenhnhan extends javax.swing.JFrame {
                         .addComponent(Pntitletrai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel5)
-                        .addGroup(PanelBIGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelBIGLayout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(pntitlephai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelBIGLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BTN_Load)
-                                .addGap(62, 62, 62))))
+                        .addGap(76, 76, 76)
+                        .addComponent(pntitlephai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelBIGLayout.createSequentialGroup()
                         .addGroup(PanelBIGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pntinhtrang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -793,9 +787,9 @@ public class benhanbenhnhan extends javax.swing.JFrame {
                                 .addComponent(pnhanhchinh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
             .addGroup(PanelBIGLayout.createSequentialGroup()
-                .addGap(218, 218, 218)
+                .addGap(236, 236, 236)
                 .addComponent(Btnsaveeeeeeee)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -813,9 +807,7 @@ public class benhanbenhnhan extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelBIGLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(Pntitletrai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BTN_Load)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(pnhanhchinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnquanlynguoibenh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -854,10 +846,6 @@ public class benhanbenhnhan extends javax.swing.JFrame {
          //nút đóng Jframe 
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void BTN_LoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_LoadActionPerformed
-        LoadData();
-    }//GEN-LAST:event_BTN_LoadActionPerformed
 
     private void BtnsaveeeeeeeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsaveeeeeeeeActionPerformed
         try{
@@ -929,6 +917,10 @@ public class benhanbenhnhan extends javax.swing.JFrame {
         xgioitinh = "Nữ";
     }//GEN-LAST:event_RBnuActionPerformed
 
+    private void IDBNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IDBNMouseClicked
+        LoadData();
+    }//GEN-LAST:event_IDBNMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -966,7 +958,6 @@ public class benhanbenhnhan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTN_Load;
     private javax.swing.JButton Btnsaveeeeeeee;
     private javax.swing.JLabel IDBN;
     private javax.swing.JPanel PanelBIG;

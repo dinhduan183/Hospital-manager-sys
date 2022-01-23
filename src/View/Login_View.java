@@ -35,18 +35,22 @@ public class Login_View extends javax.swing.JFrame {
         user = new javax.swing.JTextField();
         pass = new javax.swing.JPasswordField();
         quanlybenhvien = new javax.swing.JLabel();
-        ảnh = new javax.swing.JLabel();
         Btn_Huy = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        ảnh = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bệnh viện");
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_LoginForm.setBackground(new java.awt.Color(255, 255, 255));
         Panel_LoginForm.setPreferredSize(new java.awt.Dimension(630, 400));
 
         Btn_DangNhap.setBackground(new java.awt.Color(255, 255, 255));
         Btn_DangNhap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Btn_DangNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/login.png"))); // NOI18N
         Btn_DangNhap.setText("Đăng nhập");
         Btn_DangNhap.setBorderPainted(false);
         Btn_DangNhap.addActionListener(new java.awt.event.ActionListener() {
@@ -70,10 +74,9 @@ public class Login_View extends javax.swing.JFrame {
         quanlybenhvien.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         quanlybenhvien.setText("ĐĂNG NHẬP");
 
-        ảnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/hospital.jpg"))); // NOI18N
-
         Btn_Huy.setBackground(new java.awt.Color(255, 255, 255));
         Btn_Huy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Btn_Huy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/cancel-2.png"))); // NOI18N
         Btn_Huy.setText("Hủy");
         Btn_Huy.setBorderPainted(false);
         Btn_Huy.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +85,10 @@ public class Login_View extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/icons8-account-64.png"))); // NOI18N
+
+        ảnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/png/hospital.jpg"))); // NOI18N
+
         javax.swing.GroupLayout Panel_LoginFormLayout = new javax.swing.GroupLayout(Panel_LoginForm);
         Panel_LoginForm.setLayout(Panel_LoginFormLayout);
         Panel_LoginFormLayout.setHorizontalGroup(
@@ -89,32 +96,37 @@ public class Login_View extends javax.swing.JFrame {
             .addGroup(Panel_LoginFormLayout.createSequentialGroup()
                 .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_LoginFormLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addContainerGap(23, Short.MAX_VALUE)
+                        .addComponent(Btn_Huy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Btn_DangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addGroup(Panel_LoginFormLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(taikhoann)
                             .addComponent(matkhauu))
                         .addGap(18, 18, 18)
                         .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41))
                     .addGroup(Panel_LoginFormLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(quanlybenhvien))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_LoginFormLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Btn_Huy)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Btn_DangNhap)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(ảnh, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Panel_LoginFormLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel1))
+                            .addComponent(quanlybenhvien))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(ảnh))
         );
         Panel_LoginFormLayout.setVerticalGroup(
             Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_LoginFormLayout.createSequentialGroup()
-                .addComponent(ảnh)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(Panel_LoginFormLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(quanlybenhvien, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -124,23 +136,17 @@ public class Login_View extends javax.swing.JFrame {
                 .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matkhauu)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(Panel_LoginFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_DangNhap)
                     .addComponent(Btn_Huy))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_LoginFormLayout.createSequentialGroup()
+                .addComponent(ảnh)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_LoginForm, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_LoginForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(Panel_LoginForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,6 +218,7 @@ public class Login_View extends javax.swing.JFrame {
     private javax.swing.JButton Btn_DangNhap;
     private javax.swing.JButton Btn_Huy;
     private javax.swing.JPanel Panel_LoginForm;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel matkhauu;
     private javax.swing.JPasswordField pass;
     private javax.swing.JLabel quanlybenhvien;
